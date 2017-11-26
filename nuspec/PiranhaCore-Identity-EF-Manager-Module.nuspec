@@ -24,6 +24,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Identity\PiranhaCore-Identity-EF-Module\bin\Release\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" target="lib\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" />
+    <file src="..\Identity\PiranhaCore-Identity-EF-Manager-Module\bin\Release\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" target="lib\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" />
   </files>
 </package>
