@@ -1,0 +1,9 @@
+{
+  "name": "identity.ef.manager",
+  "private": true,
+  "dependencies": {
+    "knockout": "v3.4.2",
+    "knockout-mapping": "2.4.1",
+    "font-awesome": "Font-Awesome#v4.7.0"
+  }
+}

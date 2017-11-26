@@ -1,0 +1,267 @@
+﻿@model Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models.UserEditModel
+@{
+    ViewBag.Title = ((!string.IsNullOrEmpty(Model.UserName)) ? $"Edit user: {Model.UserName}" : "Add user");
+    ViewBag.Controller = "User";
+}
+@section head{ 
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+}
+@section script{
+    <script type="text/javascript" src="~/efmanager/assets/js/knockout.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/js/knockout-mapping.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/js/manager-user-edit.js"></script>
+    @*
+    <script type="text/javascript" src="~/efmanager/assets/js/knockout.min.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/js/knockout-mapping.min.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/js/manager-user-edit.min.js"></script>
+    *@
+    <script type="text/javascript">
+        ko.applyBindings(new UserEditViewModel( @Html.Raw(Json.Serialize(Model.UserClaims)), @Html.Raw(Json.Serialize(Model.AvailableClaims)), "@Model.Id" ));
+    </script>
+     <script type="text/javascript">
+         $(document).on('click', '#btn-login', function () {
+             $('#panel-login').slideToggle('fast');
+             return false;
+         });
+
+         $(document).on('change', '#@Html.IdFor(m => m.ChangePassword)', function () {
+             $('#password-div').slideToggle('fast');
+             return false;
+         });
+
+         document.getElementById('@Html.IdFor(m => m.FirstName)').focus();
+         @*jQuery(function($) {
+            var $chkChangePassword = $('#@Html.IdFor(m => m.ChangePassword)'),
+                $divchangePassowrd = $('#changePassowrd');
+
+            $divchangePassowrd.collapse({ toggle: false });
+
+            var fnShowHidePassword = function () {
+                var checked = $chkChangePassword.prop('checked');
+                $divchangePassowrd.collapse(checked ? 'show' : 'hide');
+            }
+
+            $chkChangePassword.on('change', fnShowHidePassword);
+
+            fnShowHidePassword();
+        });*@
+     </script>
+}
+@using (var form = Html.BeginForm("Save", "User", FormMethod.Post, new {@class = "form", @role = "form"}))
+{
+    <div class="row">
+        <div class="col-sm-12 buttons">
+            @if (!string.IsNullOrEmpty(Model.Id))
+            {
+                <!-- Login Info -->
+                <button id="btn-login" type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </button>
+            }
+            
+            <!--Actions-->
+            <div class="btn-group">
+                <button type="submit" class="btn btn-labeled btn-success pull-right">
+                    <span class="btn-label">
+                        <i class="glyphicon glyphicon-ok"></i>
+                    </span>
+                    @if (!string.IsNullOrWhiteSpace(Model.Id))
+                    {
+                        <text>Update</text>
+                    }
+                    else
+                    {
+                        <text>Save</text>
+                    }
+                </button>
+            </div>
+        </div>
+    </div>
+    if (!string.IsNullOrWhiteSpace(ViewBag.Message)) {
+         <div class="row">
+             <div class="col-sm-12">
+                 <div class="@ViewBag.MessageCss">
+                     @Html.Raw(ViewBag.Message)
+                 </div>
+             </div>
+         </div>
+    }
+    if (!string.IsNullOrEmpty(Model.Id))
+    {
+        // Current User
+        @Html.HiddenFor(m => m.Id)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Authentication information</h3>
+            </div>
+            <div id="panel-login" class="panel-body">
+                @{
+                    object userAttribute = new {@class = "form-control", placeholder = "Username…"};
+                    if (!string.IsNullOrEmpty(Model.Id))
+                    {
+                        userAttribute = new {@class = "form-control", @readonly = "readonly", autofocus = true};
+                    }
+                }
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName, userAttribute)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => m.ChangePassword, new {@class = "checkbox"})
+                            If you want to change the user password.
+                        </label>
+                    </div>
+                </div>
+                <div id="password-div" class="row collapse @(Model.ChangePassword ? "in" : "")">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="@Html.IdFor(m => m.PasswordConfirm)">Confirm Password</label>
+                            @Html.PasswordFor(m => m.PasswordConfirm, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <fieldset class="form-group">
+                            <legend>Manage User Permissions</legend>
+                            <div class="row">
+                                <!-- ko foreach: AllClaims -->
+                                @*<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>*@
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-bind="CheckBox: value, checkedValue: value, checked: $root.UserClaims"/>
+                                            <span data-bind="text: key"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">User information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            @Html.TextBoxFor(m => m.FirstName, new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            @Html.TextBoxFor(m => m.LastName, new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PhoneNumber)
+                            @Html.TextBoxFor(m => m.PhoneNumber, new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        //New User
+        @Html.HiddenFor(m => m.ChangePassword)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">User information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            @Html.TextBoxFor(m => m.FirstName, new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            @Html.TextBoxFor(m => m.LastName, new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PhoneNumber)
+                            @Html.TextBoxFor(m => m.PhoneNumber, new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Authentication information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName, new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="@Html.IdFor(m => m.PasswordConfirm)">Confirm Password</label>
+                            @Html.PasswordFor(m => m.PasswordConfirm, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+}

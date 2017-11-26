@@ -1,0 +1,70 @@
+﻿@using Piranha.AspNetCore.Identity.EF
+@model Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models.UserListModel
+@{
+    ViewBag.Title = "Users";
+    ViewBag.Controller = "User";
+}
+
+@section script{ 
+
+}
+
+<div class="row">
+    <div class="col-sm-12 buttons">
+        @if ((await Authorization.AuthorizeAsync(User, Permission.UsersAdd)).Succeeded)
+        {
+            <div class="btn-group pull-right">
+                <a class="btn btn-labeled btn-primary" href="@Url.Action("Edit")">
+                    <span class="btn-label">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </span>Add
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+@if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="@ViewBag.MessageCss">
+                @Html.Raw(ViewBag.Message)
+            </div>
+        </div>
+    </div>
+}
+<table class="table table-main table-striped">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th class="actions one"></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.UserList.Items)
+        {
+            <tr>
+                <td><a href="@Url.Action("Edit", new { id = user.Id})">@user.UserName</a></td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Email</td>
+                <td class="actions one">
+                    @if (!User.Identity.Name.Equals(user.UserName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <a class="remove confirm-delete" href="@Url.Action("Delete", new {id = user.Id})">
+                            <span class="glyphicon glyphicon-trash text-danger"></span>
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-ok"></span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

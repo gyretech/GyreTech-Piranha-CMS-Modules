@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.3</Version>
+    <Company>Gyre Technologies Inc</Company>
+    <AssemblyTitle>Piranha.AspNetCore.Identity.EF.Manager</AssemblyTitle>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</PackageId>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Product>PiranhaCMS Identity EF Manager Module</Product>
+    <PackageProjectUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Keshwar White</Authors>
+    <Description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageTags>PirahnaCMS, GyreTech, AspNetCore</PackageTags>
+    <Copyright>Copyright 2017 (c) Keshwar White</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\css\" />
+    <Folder Include="EfManager\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\Manager\Views\**\*.cshtml" />
+    <EmbeddedResource Include="assets\css\*.min.css" />
+    <EmbeddedResource Include="assets\js\*.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GyreTech.Piranha.AspNetCore.Identity.EF" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
+    <PackageReference Include="Piranha.Manager" Version="4.0.0-beta1-1" />
+  </ItemGroup>
+
+</Project>
