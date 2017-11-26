@@ -6,8 +6,8 @@
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</projectUrl>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Module</projectUrl>
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</description>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>

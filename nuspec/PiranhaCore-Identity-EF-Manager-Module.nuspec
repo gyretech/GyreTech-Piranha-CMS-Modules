@@ -6,13 +6,13 @@
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</projectUrl>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Manager-Module</projectUrl>
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</description>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>PirahnaCMS, GyreTech, AspNetCore</tags>
-    <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />
+    <repository url="https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Manager-Module" />
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
