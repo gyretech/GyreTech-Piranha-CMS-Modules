@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</id>
+    <version>1.0.3</version>
+    <authors>Keshwar White</authors>
+    <owners>Keshwar White</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</projectUrl>
+    <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
+    <description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</description>
+    <copyright>Copyright 2017 (c) Keshwar White</copyright>
+    <tags>PirahnaCMS, GyreTech, AspNetCore</tags>
+    <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="Piranha.Manager" version="4.0.0-beta1-1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="2.0.0" exclude="Build,Analyzers" />
+        <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.3" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="2.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Identity\PiranhaCore-Identity-EF-Module\bin\Release\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" target="lib\netstandard2.0\Piranha.AspNetCore.Identity.EF.Manager.dll" />
+  </files>
+</package>
