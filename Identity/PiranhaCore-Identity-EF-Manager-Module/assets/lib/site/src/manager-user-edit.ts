@@ -1,7 +1,4 @@
-﻿/// <reference path="../../../typings/knockout/knockout.d.ts" />
-/// <reference path="../../../typings/knockout.mapping/knockout.mapping.d.ts" />
-/// <reference path="../../../typings/jquery/jquery.d.ts" />
-
+﻿
 ko.bindingHandlers.CheckBox = {
     init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         var value = valueAccessor();

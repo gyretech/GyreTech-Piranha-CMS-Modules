@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</id>
-    <version>1.0.3</version>
+    <title>GyreTech PiranhaCMS Identity EF Manager Module</title>
+    <version>1.0.4</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -16,9 +17,9 @@
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
-        <dependency id="Piranha.Manager" version="4.0.0-beta1-1" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.AspNetCore.Mvc" version="2.0.0" exclude="Build,Analyzers" />
-        <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.3" exclude="Build,Analyzers" />
+        <dependency id="Piranha.Manager" version="4.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.5" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="2.0.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>

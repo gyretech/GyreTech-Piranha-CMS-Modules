@@ -37,11 +37,11 @@
     <EmbeddedResource Include="assets\js\*.js" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="GyreTech.Piranha.AspNetCore.Identity.EF" Version="1.0.3" />
+    <PackageReference Include="GyreTech.Piranha.AspNetCore.Identity.EF" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
-    <PackageReference Include="Piranha.Manager" Version="4.0.0-beta1-1" />
+    <PackageReference Include="Piranha.Manager" Version="4.0.1" />
   </ItemGroup>
 
 </Project>
