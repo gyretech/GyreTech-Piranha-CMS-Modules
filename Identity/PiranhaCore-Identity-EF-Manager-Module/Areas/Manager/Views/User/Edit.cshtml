@@ -4,17 +4,13 @@
     ViewBag.Controller = "User";
 }
 @section head{ 
-    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/efmanager/assets/css/font-awesome.min.css" rel="stylesheet" />
 }
 @section script{
     <script type="text/javascript" src="~/efmanager/assets/js/knockout.js"></script>
     <script type="text/javascript" src="~/efmanager/assets/js/knockout-mapping.js"></script>
     <script type="text/javascript" src="~/efmanager/assets/js/manager-user-edit.js"></script>
-    @*
-    <script type="text/javascript" src="~/efmanager/assets/js/knockout.min.js"></script>
-    <script type="text/javascript" src="~/efmanager/assets/js/knockout-mapping.min.js"></script>
-    <script type="text/javascript" src="~/efmanager/assets/js/manager-user-edit.min.js"></script>
-    *@
+    
     <script type="text/javascript">
         ko.applyBindings(new UserEditViewModel( @Html.Raw(Json.Serialize(Model.UserClaims)), @Html.Raw(Json.Serialize(Model.AvailableClaims)), "@Model.Id" ));
     </script>
