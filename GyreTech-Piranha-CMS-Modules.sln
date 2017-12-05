@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{B893EDFA-971D-4DB1-B593-840DCFDCA287}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.AspNetCore.Identity.EF.Manager", "Identity\PiranhaCore-Identity-EF-Manager-Module\Piranha.AspNetCore.Identity.EF.Manager.csproj", "{17E117B1-4BFE-47FF-BE72-C2CB5AA00763}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.AspNetCore.Identity.EF", "Identity\PiranhaCore-Identity-EF-Module\Piranha.AspNetCore.Identity.EF.csproj", "{E97F6527-302A-422F-BED9-002CE4A998CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blogging", "Blogging", "{64C600B7-2EAE-4583-848E-821E348493A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApiMiddleware", "Blogging\BlogApiMiddleware\BlogApiMiddleware.csproj", "{944830A1-4166-48A9-9B53-14246A00F098}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{E97F6527-302A-422F-BED9-002CE4A998CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E97F6527-302A-422F-BED9-002CE4A998CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E97F6527-302A-422F-BED9-002CE4A998CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944830A1-4166-48A9-9B53-14246A00F098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944830A1-4166-48A9-9B53-14246A00F098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944830A1-4166-48A9-9B53-14246A00F098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944830A1-4166-48A9-9B53-14246A00F098}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{17E117B1-4BFE-47FF-BE72-C2CB5AA00763} = {B893EDFA-971D-4DB1-B593-840DCFDCA287}
 		{E97F6527-302A-422F-BED9-002CE4A998CE} = {B893EDFA-971D-4DB1-B593-840DCFDCA287}
+		{944830A1-4166-48A9-9B53-14246A00F098} = {64C600B7-2EAE-4583-848E-821E348493A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC1ED432-FC4C-4F5A-AF50-5F534B13F12B}
