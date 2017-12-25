@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web" ToolsVersion="15.0">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
     <Company>Gyre Technologies Inc</Company>
     <AssemblyTitle>Piranha.AspNetCore.Identity.EF.Manager</AssemblyTitle>
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
@@ -10,8 +10,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</PackageId>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+    <FileVersion>1.0.7.0</FileVersion>
     <Product>PiranhaCMS Identity EF Manager Module</Product>
     <PackageProjectUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module/blob/master/LICENSE</PackageLicenseUrl>

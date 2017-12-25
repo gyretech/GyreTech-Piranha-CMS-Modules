@@ -12,7 +12,7 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</description>
     <summary>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</summary>
-    <releaseNotes>Fixed the embedding of Fontawesome</releaseNotes>
+    <releaseNotes>You can now include addtional permissions on startup</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>PirahnaCMS, GyreTech, AspNetCore</tags>
     <repository url="https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Manager-Module" />
@@ -21,7 +21,7 @@
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Piranha.Manager" version="4.0.2" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore.Mvc" version="2.0.1" exclude="Build,Analyzers" />
-        <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.6" exclude="Build,Analyzers" />
+        <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.7" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="2.0.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>

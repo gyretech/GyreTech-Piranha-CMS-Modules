@@ -64,7 +64,7 @@ namespace CoreWeb
             });
 
             // Add Identity Security EF Manager
-            services.AddPiranhaIdentityEFManager();
+            services.AddEfIdentityManager();
 
             return services.BuildServiceProvider();
         }
