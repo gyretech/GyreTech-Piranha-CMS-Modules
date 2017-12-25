@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Piranha.Areas.Manager.Controllers;
-using Piranha.AspNetCore.Identity.EF;
+using Piranha.AspNetCore.Identity.EF.Data;
 using Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models;
 using Piranha.Manager;
 
@@ -15,12 +15,11 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
     [Area("Manager")]
     public class UserController : ManagerAreaControllerBase
     {
-        private readonly AppUserRepository repo;
-        private readonly UserManager<IdentityAppUser> userManager;
+        
+        private readonly UserManager<EfIdentityUser> userManager;
 
-        public UserController(IApi api, AppUserRepository userRepository, UserManager<IdentityAppUser> userManager) : base(api)
+        public UserController(IApi api, UserManager<EfIdentityUser> userManager) : base(api)
         {
-            this.repo = userRepository;
             this.userManager = userManager;
         }
 
@@ -28,10 +27,10 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
         /// Get the list view of the users.
         /// </summary>
         [Route("manager/users")]
-        [Authorize(Policy = Permission.Users)]
+        [Authorize(Policy = Code.Permission.Users)]
         public IActionResult List()
         {
-            var model = UserListModel.Get(repo, userManager);
+            var model = UserListModel.Get(userManager);
 
             return View(model);
         }
@@ -41,7 +40,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
         /// </summary>
         /// <param name="id"></param>
         [Route("manager/edit/user/{id?}")]
-        [Authorize(Policy = Permission.UsersEdit)]
+        [Authorize(Policy = Code.Permission.UsersEdit)]
         public async Task<IActionResult> Edit(string id = null)
         {
             if (!string.IsNullOrEmpty(id))
@@ -56,7 +55,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
         /// <param name="model">The user model</param>
         [HttpPost]
         [Route("manager/user/save")]
-        [Authorize(Policy = Permission.UsersSave)]
+        [Authorize(Policy = Code.Permission.UsersSave)]
         public async Task<IActionResult> Save(UserEditModel model)
         {
             if (ModelState.IsValid)
@@ -71,12 +70,13 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
                     
 
                 ErrorMessage(result.Item2);
-                return View("Edit", model);
+                return View("Edit", await model.UpdateClaimsAsync(userManager));
 
             }
 
             ErrorMessage("The user could not be saved.", false);
-            return View("Edit", model);
+
+            return View("Edit", await model.UpdateClaimsAsync(userManager));
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("manager/user/delete/{id}")]
-        [Authorize(Policy = Permission.UsersDelete)]
+        [Authorize(Policy = Code.Permission.UsersDelete)]
         public async Task<IActionResult> Delete(string id)
         {
             if(string.IsNullOrEmpty(id))
@@ -115,7 +115,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("manager/user/claims/update")]
-        [Authorize(Policy = Permission.UsersSave)]
+        [Authorize(Policy = Code.Permission.UsersSave)]
         public async Task<IActionResult> Update(UserClaimModel model)
         {
             var claim = new Claim(model.ClaimValue, model.ClaimValue);

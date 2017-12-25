@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using AutoMapper;
+using Piranha.AspNetCore.Identity.EF.Data;
 using Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models;
 using Piranha.Manager;
 
@@ -43,13 +44,14 @@ namespace Piranha.AspNetCore.Identity.EF.Manager
 
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<IdentityAppUser, UserEditModel>()
+                cfg.CreateMap<EfIdentityUser, UserEditModel>()
                     .ForMember(m => m.ChangePassword, o => o.Ignore())
                     .ForMember(m => m.PasswordConfirm, o => o.Ignore())
                     .ForMember(m => m.UserClaims, o => o.Ignore())
                     .ForMember(m => m.AvailableClaims, o => o.Ignore());
-                cfg.CreateMap<UserEditModel, IdentityAppUser>()
+                cfg.CreateMap<UserEditModel, EfIdentityUser>()
                     .ForMember(m => m.Claims, o => o.Ignore())
+                    .ForMember(m => m.IsDefault, o => o.Ignore())
                     .ForMember(m => m.NormalizedUserName, o => o.Ignore())
                     .ForMember(m => m.NormalizedEmail, o => o.Ignore())
                     .ForMember(m => m.EmailConfirmed, o => o.Ignore())

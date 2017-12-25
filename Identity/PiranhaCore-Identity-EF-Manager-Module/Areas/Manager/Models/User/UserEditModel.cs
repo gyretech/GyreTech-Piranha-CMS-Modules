@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Piranha.AspNetCore.Identity.EF.Code;
+using Piranha.AspNetCore.Identity.EF.Data;
+using Piranha.AspNetCore.Identity.EF.Manager.Validation;
 
 namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
 {
@@ -48,20 +51,20 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
 
         public IList<string> UserClaims { get; set; }
 
-        public List<KeyValuePair<string, string>> AvailableClaims => Permission.All(Piranha.Manager.Permission.All())
+        public List<KeyValuePair<string, string>> AvailableClaims => Permission.Registered
             .Select(x => new KeyValuePair<string, string>(Regex.Replace(x, "(\\B[A-Z])", " $1"), x)).ToList();
 
         public bool ChangePassword { get; set; }
 
         #endregion
 
-        public static async Task<UserEditModel> GetById(UserManager<IdentityAppUser> userManager, string id)
+        public static async Task<UserEditModel> GetById(UserManager<EfIdentityUser> userManager, string id)
         {
             var user = await userManager.FindByIdAsync(id);
 
             if (user != null)
             {
-                var model = IdentityEFModule.Mapper.Map<IdentityAppUser, UserEditModel>(user);
+                var model = IdentityEFModule.Mapper.Map<EfIdentityUser, UserEditModel>(user);
                 var claims = await userManager.GetClaimsAsync(user);
                 if (claims.Any())
                     model.UserClaims = claims.Select(x => x.Value).ToList();
@@ -71,7 +74,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
             throw new KeyNotFoundException($"No page found with the id '{id}'");
         }
 
-        public static UserEditModel Create(UserManager<IdentityAppUser> userManager)
+        public static UserEditModel Create(UserManager<EfIdentityUser> userManager)
         {
             var model = new UserEditModel();
 
@@ -81,11 +84,11 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
             return model;
         }
 
-        public async Task<Tuple<bool, string>> Save(UserManager<IdentityAppUser> userManager)
+        public async Task<Tuple<bool, string>> Save(UserManager<EfIdentityUser> userManager)
         {
             var isNew = false;
 
-            IdentityAppUser user = null;
+            EfIdentityUser user = null;
 
             if (!string.IsNullOrEmpty(Id))
                 user = await userManager.FindByIdAsync(Id);
@@ -95,7 +98,7 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
 
             if (isNew)
             {
-                user = new IdentityAppUser();
+                user = new EfIdentityUser();
 
                 IdentityEFModule.Mapper.Map(this, user);
 
@@ -121,6 +124,20 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
             }
             
 
+        }
+
+        public async Task<UserEditModel> UpdateClaimsAsync(UserManager<EfIdentityUser> userManager)
+        {
+            var user = await userManager.FindByIdAsync(Id);
+
+            if(user != null)
+            {
+                var claims = await userManager.GetClaimsAsync(user);
+                if (claims.Any())
+                    UserClaims = claims.Select(x => x.Value).ToList();
+            }
+
+            return this;
         }
     }
 }

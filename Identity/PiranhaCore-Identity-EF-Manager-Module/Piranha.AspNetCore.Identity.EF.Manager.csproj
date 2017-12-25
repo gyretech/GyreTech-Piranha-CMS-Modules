@@ -4,7 +4,7 @@
     <Version>1.0.5</Version>
     <Company>Gyre Technologies Inc</Company>
     <AssemblyTitle>Piranha.AspNetCore.Identity.EF.Manager</AssemblyTitle>
-    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -24,24 +24,43 @@
     <PackageTags>PirahnaCMS, GyreTech, AspNetCore</PackageTags>
     <Copyright>Copyright 2017 (c) Keshwar White</Copyright>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="assets\css\" />
+    <Folder Include="assets\lib\" />
     <Folder Include="EfManager\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Areas\Manager\Views\**\*.cshtml" />
-    <EmbeddedResource Include="assets\css\*.min.css" />
-    <EmbeddedResource Include="assets\js\*.js" />
+    <EmbeddedResource Include="assets\lib\font-awesome\css\*.min.css" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.otf" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.eot" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.svg" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.ttf" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.woff" />
+    <EmbeddedResource Include="assets\lib\font-awesome\fonts\*.woff2" />
+    <EmbeddedResource Include="assets\lib\knockout\*.js" />
+    <EmbeddedResource Include="assets\lib\knockout-mapping\*.js" />
+    <EmbeddedResource Include="assets\site\built\*.js" />
   </ItemGroup>
+  
   <ItemGroup>
-    <PackageReference Include="GyreTech.Piranha.AspNetCore.Identity.EF" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
-    <PackageReference Include="Piranha.Manager" Version="4.0.1" />
+    <PackageReference Include="Piranha.Manager" Version="4.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PiranhaCore-Identity-EF-Module\Piranha.AspNetCore.Identity.EF.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Identity.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.identity.core\2.0.1\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

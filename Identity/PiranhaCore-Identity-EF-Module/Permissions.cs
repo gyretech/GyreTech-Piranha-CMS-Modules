@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace Piranha.AspNetCore.Identity.EF
+namespace Piranha.AspNetCore.Identity.EF.Code
 {
     public static class Permission
     {
@@ -11,7 +12,7 @@ namespace Piranha.AspNetCore.Identity.EF
         public const string UsersEdit = "PiranhaUsersEdit";
         public const string UsersSave = "PiranhaUsersSave";
 
-        public static string[] All(string[] piranhaPermissions = null)
+        public static string[] All()
         {
             var permissions = new List<string>
             {
@@ -22,12 +23,13 @@ namespace Piranha.AspNetCore.Identity.EF
                 UsersSave
             };
 
-            if (piranhaPermissions != null)
-            {
-                permissions.AddRange(piranhaPermissions.ToList());
-            }
+            // Include piranha permissions
+            permissions.AddRange(Security.Permission.All());
 
             return permissions.ToArray();
         }
+
+        public static List<string> Registered = new List<string>(All());
+
     }
 }

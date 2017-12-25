@@ -4,12 +4,12 @@
     ViewBag.Controller = "User";
 }
 @section head{ 
-    <link type="text/css" href="~/efmanager/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/efmanager/assets/lib/font_awesome/css/font-awesome.min.css" rel="stylesheet" />
 }
 @section script{
-    <script type="text/javascript" src="~/efmanager/assets/js/knockout.js"></script>
-    <script type="text/javascript" src="~/efmanager/assets/js/knockout-mapping.js"></script>
-    <script type="text/javascript" src="~/efmanager/assets/js/manager-user-edit.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/lib/knockout/knockout-latest.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/lib/knockout_mapping/knockout.mapping.js"></script>
+    <script type="text/javascript" src="~/efmanager/assets/site/built/manager-user-edit.js"></script>
     
     <script type="text/javascript">
         ko.applyBindings(new UserEditViewModel( @Html.Raw(Json.Serialize(Model.UserClaims)), @Html.Raw(Json.Serialize(Model.AvailableClaims)), "@Model.Id" ));
@@ -26,21 +26,7 @@
          });
 
          document.getElementById('@Html.IdFor(m => m.FirstName)').focus();
-         @*jQuery(function($) {
-            var $chkChangePassword = $('#@Html.IdFor(m => m.ChangePassword)'),
-                $divchangePassowrd = $('#changePassowrd');
-
-            $divchangePassowrd.collapse({ toggle: false });
-
-            var fnShowHidePassword = function () {
-                var checked = $chkChangePassword.prop('checked');
-                $divchangePassowrd.collapse(checked ? 'show' : 'hide');
-            }
-
-            $chkChangePassword.on('change', fnShowHidePassword);
-
-            fnShowHidePassword();
-        });*@
+         
      </script>
 }
 @using (var form = Html.BeginForm("Save", "User", FormMethod.Post, new {@class = "form", @role = "form"}))
