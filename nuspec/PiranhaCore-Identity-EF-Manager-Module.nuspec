@@ -3,7 +3,7 @@
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</id>
     <title>GyreTech PiranhaCMS Identity EF Manager Module</title>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</description>
     <summary>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</summary>
-    <releaseNotes>You can now include addtional permissions on startup</releaseNotes>
+    <releaseNotes>Breaking changes to setup: Renamed several methods</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>PirahnaCMS, GyreTech, AspNetCore</tags>
     <repository url="https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Manager-Module" />
