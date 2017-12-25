@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Piranha.AspNetCore.Identity.EF.Code;
+using System;
 using System.Linq;
 
 namespace Piranha.AspNetCore.Identity.EF.Extensions

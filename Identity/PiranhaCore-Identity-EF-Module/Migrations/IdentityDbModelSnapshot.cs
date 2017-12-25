@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using Piranha.AspNetCore.Identity.EF;
+using Piranha.AspNetCore.Identity.EF.Data;
 using System;
 
 namespace Piranha.AspNetCore.Identity.EF.Migrations
 {
-    [DbContext(typeof(PiranhaIdentityDbContext))]
+    [DbContext(typeof(EfIdentityDbContext))]
     partial class IdentityDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

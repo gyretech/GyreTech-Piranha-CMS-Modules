@@ -1,18 +1,6 @@
-[
+﻿[
   {
-    "outputFileName": "assets/js/knockout.js",
-    "inputFiles": [
-      "assets/lib/knockout/dist/knockout.js"
-    ]
-  },
-  {
-    "outputFileName": "assets/js/knockout-mapping.js",
-    "inputFiles": [
-      "assets/lib/knockout-mapping/knockout.mapping.js"
-    ]
-  },
-  {
-    "outputFileName": "assets/js/manager-user-edit.js",
+    "outputFileName": "assets/js/manager-user-edit.min.js",
     "inputFiles": [
       "assets/lib/site/built/manager-user-edit.js"
     ]

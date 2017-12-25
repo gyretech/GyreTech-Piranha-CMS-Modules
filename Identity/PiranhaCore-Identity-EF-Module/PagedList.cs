@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Piranha.AspNetCore.Identity.EF
+namespace Piranha.AspNetCore.Identity.EF.Code
 {
     public class PagedList<T>
     {

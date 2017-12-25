@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF</id>
-    <version>1.0.3</version>
+    <title>GyreTech PiranhaCMS Identity EF Module</title>
+    <version>1.0.6</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,15 +11,17 @@
     <projectUrl>https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Module</projectUrl>
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</description>
+    <summary>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</summary>
+    <releaseNotes>Target the correct Piranha Version</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
-    <tags>piranha, cms, aspnetcore</tags>
+    <tags>piranha, cms, aspnetcore, gyretech</tags>
     <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.EntityFrameworkCore" version="2.0.1" exclude="Build,Analyzers" />
-        <dependency id="Piranha" version="4.0.0-beta1" exclude="Build,Analyzers" />
+        <dependency id="Piranha" version="4.0.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore.Identity" version="2.0.1" exclude="Build,Analyzers" />
       </group>
