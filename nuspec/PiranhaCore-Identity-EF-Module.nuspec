@@ -3,7 +3,7 @@
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF</id>
     <title>GyreTech PiranhaCMS Identity EF Module</title>
-    <version>1.0.6</version>
+    <version>1.0.8</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</description>
     <summary>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</summary>
-    <releaseNotes>Target the correct Piranha Version</releaseNotes>
+    <releaseNotes>Bug fixes</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>piranha, cms, aspnetcore, gyretech</tags>
     <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />

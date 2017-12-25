@@ -11,7 +11,8 @@ namespace Piranha.AspNetCore.Identity.EF.Manager
 {
     public static class IdentityEFManagerModuleExtensions
     {
-        public static IServiceCollection AddPiranhaIdentityEFManager(this IServiceCollection services)
+
+        public static IServiceCollection AddEfIdentityManager(this IServiceCollection services)
         {
             var assembly = typeof(IdentityEFManagerModuleExtensions).GetTypeInfo().Assembly;
             var embeddedProvider = new EmbeddedFileProvider(assembly, "Piranha.AspNetCore.Identity.EF.Manager");

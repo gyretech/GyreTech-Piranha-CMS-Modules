@@ -1,4 +1,4 @@
-﻿using System;
+g﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -64,7 +64,7 @@ namespace CoreWeb
             });
 
             // Add Identity Security EF Manager
-            services.AddPiranhaIdentityEFManager();
+            services.AddEfIdentityManager();
 
             return services.BuildServiceProvider();
         }
