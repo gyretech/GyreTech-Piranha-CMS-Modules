@@ -17,7 +17,7 @@ namespace Piranha.AspNetCore.Identity.EF.Code
         private readonly SignInManager<EfIdentityUser> _signInManager;
         private readonly UserManager<EfIdentityUser> _userManager;
         // Default Contructor
-        public EfIdentitySecurity(Action<EfIdentityDbBuilder> options, SignInManager<EfIdentityUser> signInManager, UserManager<EfIdentityUser> userManager, ILogger logger)
+        public EfIdentitySecurity(Action<EfIdentityDbBuilder> options, SignInManager<EfIdentityUser> signInManager, UserManager<EfIdentityUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -40,7 +40,7 @@ namespace Piranha.AspNetCore.Identity.EF.Code
             if (!config.Users.Any(u => u.IsDefault) || config.Users.Count(u => u.IsDefault) > 1)
             {
 
-                logger.LogError("You must have one Default User!");
+                // logger.LogError("You must have one Default User!");
 
                 return;
             }
