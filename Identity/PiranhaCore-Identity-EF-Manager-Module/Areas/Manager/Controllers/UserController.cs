@@ -70,6 +70,10 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Area.Manager.Controllers
                     
 
                 ErrorMessage(result.Item2);
+
+                if (string.IsNullOrEmpty(model.Id))
+                    return View("Edit", model);
+
                 return View("Edit", await model.UpdateClaimsAsync(userManager));
 
             }

@@ -43,7 +43,10 @@ namespace Piranha.AspNetCore.Identity.EF.Manager.Areas.Manager.Models
         public string Email { get; set; }
 
         [RequiredIfTrue("ChangePassword", ErrorMessage = "Password is required.")]
+        [RegularExpression("^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$", ErrorMessage = "Password must be at least 6 characters and max 20 characters long. <br/>Also it must have at least one number and one symbol (! @ # $ % ^ &).")]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        [StringLength(20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]

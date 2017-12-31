@@ -12,7 +12,7 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</description>
     <summary>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</summary>
-    <releaseNotes>Bug fixes</releaseNotes>
+    <releaseNotes>Removed ILogger dependency</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>piranha, cms, aspnetcore, gyretech</tags>
     <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />

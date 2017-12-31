@@ -1,4 +1,4 @@
-## Welcom GyreTech PiranhaCMS Identity EF Manager Module
+## Welcome GyreTech PiranhaCMS Identity EF Manager Module
 PiranhaCMS Module that adds .NET Core Identity User Management UI to manage the Piranha Identity EF Module.
 
 ## Registering the Module
