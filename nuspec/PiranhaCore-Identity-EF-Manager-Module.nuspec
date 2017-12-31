@@ -3,7 +3,7 @@
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF.Manager</id>
     <title>GyreTech PiranhaCMS Identity EF Manager Module</title>
-    <version>1.0.10</version>
+    <version>1.1.0-alpha1</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,14 +12,14 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</description>
     <summary>PiranhaCMS Module that adds .NET Core Identity User Management interface to Piranha.Manager.</summary>
-    <releaseNotes>Update GyreTech Idendtity EF dependency</releaseNotes>
+    <releaseNotes>Support for Piranha Manager 4.1</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>PirahnaCMS, GyreTech, AspNetCore</tags>
     <repository url="https://github.com/gyretech/GyreTech-Piranha-CMS-Modules/tree/master/Identity/PiranhaCore-Identity-EF-Manager-Module" />
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
-        <dependency id="Piranha.Manager" version="4.0.2" exclude="Build,Analyzers" />
+        <dependency id="Piranha.Manager" version="4.1.0-alpha1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore.Mvc" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="GyreTech.Piranha.AspNetCore.Identity.EF" version="1.0.8" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="2.0.0" exclude="Build,Analyzers" />

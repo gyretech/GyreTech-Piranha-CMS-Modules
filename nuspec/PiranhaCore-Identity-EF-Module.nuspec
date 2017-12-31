@@ -3,7 +3,7 @@
   <metadata>
     <id>GyreTech.Piranha.AspNetCore.Identity.EF</id>
     <title>GyreTech PiranhaCMS Identity EF Module</title>
-    <version>1.0.8</version>
+    <version>1.1.0-alpha1</version>
     <authors>Keshwar White</authors>
     <owners>Keshwar White</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <iconUrl>http://gyretechnologies.com/content/media/the_gyre.png</iconUrl>
     <description>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</description>
     <summary>A PiranhaCMS Module that handles ASP.NET Core Identity with Entity Framework as the backing store.</summary>
-    <releaseNotes>Removed ILogger dependency</releaseNotes>
+    <releaseNotes>Support Piranha 4.1</releaseNotes>
     <copyright>Copyright 2017 (c) Keshwar White</copyright>
     <tags>piranha, cms, aspnetcore, gyretech</tags>
     <repository url="https://github.com/gyretech/PiranhaCore-Identity-EF-Manager-Module" />
@@ -21,7 +21,7 @@
         <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.EntityFrameworkCore" version="2.0.1" exclude="Build,Analyzers" />
-        <dependency id="Piranha" version="4.0.0" exclude="Build,Analyzers" />
+        <dependency id="Piranha" version="4.1.0-alpha1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="2.0.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.AspNetCore.Identity" version="2.0.1" exclude="Build,Analyzers" />
       </group>

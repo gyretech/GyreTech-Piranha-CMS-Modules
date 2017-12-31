@@ -52,15 +52,10 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
-    <PackageReference Include="Piranha.Manager" Version="4.0.2" />
+    <PackageReference Include="Piranha.Manager" Version="4.1.0-alpha1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PiranhaCore-Identity-EF-Module\Piranha.AspNetCore.Identity.EF.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Identity.Core">
-      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.identity.core\2.0.1\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
